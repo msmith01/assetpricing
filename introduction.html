@@ -1,0 +1,3860 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="introduction_files/libs/clipboard/clipboard.min.js"></script>
+<script src="introduction_files/libs/quarto-html/tabby.min.js"></script>
+<script src="introduction_files/libs/quarto-html/popper.min.js"></script>
+<script src="introduction_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="introduction_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="introduction_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="introduction_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="introduction_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.5.57">
+
+  <meta name="author" content="Matthew Smith">
+  <title>Asset Pricing and Valuation</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="introduction_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="introduction_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="introduction_files/libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="custom_css.css">
+  <link href="introduction_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="introduction_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="introduction_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="introduction_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="introduction_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="introduction_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-opacity="0.5" data-background-size="cover" class="quarto-title-block center">
+  <h1 class="title">Asset Pricing and Valuation</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Matthew Smith 
+</div>
+</div>
+</div>
+
+</section>
+<section id="course-overview" class="title-slide slide level1 center">
+<h1>Course Overview</h1>
+<ul>
+<li class="fragment"><strong>Valuation</strong>: Key concepts of asset pricing and valuation.</li>
+<li class="fragment"><strong>Risk and Return of a Portfolio</strong>: Understanding portfolio performance.</li>
+<li class="fragment"><strong>Markowitz Portfolio Optimization</strong>: Efficient frontier and asset allocation.</li>
+<li class="fragment"><strong>Capital Asset Pricing Model</strong>: The relationship between risk and expected return.</li>
+<li class="fragment"><strong>Fama and French 3 &amp; 5 Factor Model</strong>: Multi-factor models and their application.</li>
+<li class="fragment"><strong>Seeking Alpha (Lazy Prices)</strong>: Exploring alpha and market inefficiencies.</li>
+<li class="fragment"><strong>(If time) ML for Portfolio Optimization</strong>: Machine learning techniques for optimization.</li>
+<li class="fragment"><strong>Derivatives</strong>: Understanding financial derivatives and their pricing.</li>
+<li class="fragment"><strong>Options</strong>: Introduction to options and strategies for pricing and hedging.</li>
+</ul>
+</section>
+
+<section id="course-overview-1" class="title-slide slide level1 center">
+<h1>Course Overview</h1>
+
+<img data-src="difficulty-curves-gr.png" class="r-stretch"></section>
+
+<section id="todays-learning-objectives" class="title-slide slide level1 center">
+<h1>Today’s Learning Objectives</h1>
+<ul>
+<li class="fragment"><strong>Understand Investment Valuation Models</strong>: Gain an intuition for various models used in investment analysis.</li>
+<li class="fragment"><strong>Investment Project Analysis</strong>: Learn how to describe an investment project based on its cash flows.</li>
+<li class="fragment"><strong>Time Value of Money</strong></li>
+<li class="fragment"><strong>Net Present Value (NPV)</strong>: Learn to calculate and interpret the NPV of a project.</li>
+<li class="fragment"><strong>Discounted Cash Flow (DCF) Valuation</strong>: Understand how to value a firm using DCF analysis.</li>
+</ul>
+</section>
+
+<section id="why-valuation-matters" class="title-slide slide level1 center">
+<h1>Why Valuation Matters</h1>
+<ul>
+<li class="fragment"><strong>Informs Sound Investment Decisions</strong>: Helps investors identify profitable and safe opportunities by assessing risk and return.</li>
+<li class="fragment"><strong>Compares and Ranks Projects/Opportunities</strong>: Provides a basis to compare the potential of different investment opportunities objectively.</li>
+<li class="fragment"><strong>Essential in Corporate Finance &amp; Banking</strong>: A critical tool in corporate finance, investment banking, and portfolio management for assessing value and making strategic decisions.</li>
+</ul>
+</section>
+
+<section id="misconceptions-about-valuation" class="title-slide slide level1 center">
+<h1>Misconceptions About Valuation</h1>
+<ul>
+<li class="fragment"><p>Myth 1: A Valuation is an Objective Search for “True” Value – <strong>Truth 1.1</strong>: All valuations are biased. The only questions are how much and in which direction. – <strong>Truth 1.2</strong>: The direction and magnitude of bias are directly proportional to who pays you and how much you are paid.</p></li>
+<li class="fragment"><p>Myth 2: A Good Valuation Provides a Precise Estimate of Value – <strong>Truth 2.1</strong>: There are no precise valuations. – <strong>Truth 2.2</strong>: The payoff to valuation is greatest when the valuation is least precise.</p></li>
+<li class="fragment"><p>Myth 3: The More Quantitative a Model, the Better the Valuation (we should use complex models?) – <strong>Truth 3.1</strong>: Let inputs to the model are usually better. – <strong>Truth 3.2</strong>: Simpler valuation models perform better than complex ones.</p></li>
+</ul>
+</section>
+
+<section id="basis-for-all-valuation-approaches" class="title-slide slide level1 center">
+<h1>Basis for all valuation approaches</h1>
+<ul>
+<li class="fragment"><p>Decisions on which assets are undervalued and which are overvalued are based on: – Perceptions that markets are inefficient (i.e.&nbsp;mistakes in pricing assets) – Assumption about how and when these inefficiencies will get corrected.</p></li>
+<li class="fragment"><p>In efficient markets, the market price is the best estimate of value.</p></li>
+<li class="fragment"><p>The purpose of any valuation model is then the justification of this value.</p></li>
+</ul>
+</section>
+
+<section id="value-of-a-winning-lottery-ticket" class="title-slide slide level1 center">
+<h1>Value of a winning lottery ticket</h1>
+
+<img data-src="ticket.png" class="r-stretch"></section>
+
+<section id="value-of-a-project" class="title-slide slide level1 center">
+<h1>Value of a project</h1>
+<ul>
+<li class="fragment"><p>Valuation of a project is subjective.</p></li>
+<li class="fragment"><p>Each person will come up with their own valuation for a given project.</p></li>
+<li class="fragment"><p>Projects need funding (loans) and investors need to be compensated for the risk they take.</p></li>
+<li class="fragment"><p>What is the value of a cow?</p></li>
+<li class="fragment"><p>What is the value of a project?</p></li>
+</ul>
+
+<img data-src="cow.png" class="r-stretch"></section>
+
+<section>
+<section id="interest-rates" class="title-slide slide level1 center">
+<h1>Interest Rates</h1>
+<ul>
+<li class="fragment">Interest rates are the price the borrower of money is charged to borrow money.</li>
+<li class="fragment">Suppose we take a loan for <span class="math inline">\(X\)</span> (principal) at an annual interest rate of <span class="math inline">\(r\)</span>. We hold the loan for 1 year how much interest will be charged?</li>
+</ul>
+</section>
+<section id="interest-rates-1" class="slide level2">
+<h2>Interest Rates</h2>
+<p><span class="math display">\[
+\text{Total interest (1 Year)} = rX \\
+\text{Outstanding Debt} = \text{Principal} + \text{Interest} \\
+= X + rX \\
+= (1 + r)X
+\]</span></p>
+</section></section>
+<section id="interest-rates-2" class="title-slide slide level1 center">
+<h1>Interest Rates</h1>
+<div class="callout callout-none no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><strong>Question</strong>:<br>
+Suppose we borrow $<span class="math inline">\(5000\)</span> at an annual interest rate of 7%. How much interest will we be charged in the first year? How much debt will we have if we make no payments? What about year 2?</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="year-1" class="title-slide slide level1 center">
+<h1>Year 1</h1>
+<div class="callout callout-none no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><strong>Answer</strong>:<br>
+The total interest and outstanding debt can be calculated as follows:</p>
+<p><span class="math display">\[
+\text{Total interest (1 Year)} = rX = 0.07 \times 5000 = \$350 \\
+\text{Outstanding Debt} = (1 + r)X \\
+= (1 + 0.07) \times 5000 = \$5350
+\]</span></p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="year-2" class="title-slide slide level1 center">
+<h1>Year 2</h1>
+<div class="callout callout-none no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><strong>Answer</strong>:<br>
+For the second year, we calculate the interest on the new outstanding debt ($5350):</p>
+<p><span class="math display">\[
+\text{Total interest (2nd Year)} = r \times \text{Outstanding Debt (End of Year 1)} = 0.07 \times 5350 = \$374.50 \\
+\text{Outstanding Debt (End of Year 2)} = (1 + r) \times \text{Outstanding Debt (End of Year 1)} = (1 + 0.07) \times 5350 = \$5724.50
+\]</span></p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="interest-rates-3" class="title-slide slide level1 center">
+<h1>Interest Rates</h1>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li class="fragment"><strong>Where do interest rates come from?</strong></li>
+</ul>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">We go to a bank and ask for a loan, the bank tells us how much interest we need to pay back. (Where does this number come from?)</li>
+<li class="fragment">Interest rates are the prices that are negotiated between the borrowers and lenders of money.</li>
+<li class="fragment">Two types of markets for <strong>borrowers</strong> and <strong>lenders</strong>.</li>
+</ul>
+</section>
+
+<section id="interest-rates-4" class="title-slide slide level1 center">
+<h1>Interest Rates</h1>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Money Markets</strong> - Wants to borrow money as cheaply as possible - Aims for lowest interest rate</p>
+</div><div class="column" style="width:50%;">
+<p><strong>Lenders</strong> - Wants to earn the highest possible rate (highest rates are riskier) - <strong>Risk</strong> - loss of their investment (not paid back if they go for high rates)</p>
+</div><ul>
+<li class="fragment">Interest Rates are the prices negotiated on <strong>Money Markets</strong> and <strong>Bond Markets</strong> - but governments and central banks heavily influence these rates.</li>
+</ul>
+</div>
+</section>
+
+<section id="term-structure-of-interest-rates" class="title-slide slide level1 smaller center">
+<h1>Term-Structure of Interest Rates</h1>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li class="fragment">Interest rates have a <em>term structure</em> they vary depending on the length of the loan.</li>
+<li class="fragment">i.e.&nbsp;we will be charged different interest rates if we borrow money for 3 months than 5 years.</li>
+<li class="fragment">i.e.&nbsp;the longer the loan term, the more time your money is tied up, thus the more risk you assume. With greater risk, you require a greater rewards, thus in the <em>Term-Structure of Interest Rates</em> we see higher yields for longer term loans.</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="introduction_files/figure-revealjs/unnamed-chunk-2-1.png" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+
+<section id="interest-rates-5" class="title-slide slide level1 center">
+<h1>Interest Rates</h1>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li class="fragment"><strong>Where do interest rates come from?</strong></li>
+</ul>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">Central banks set an overall base rate for interest rates</li>
+<li class="fragment">Once central banks set the base rate, the markets adjust (maintain a spread)</li>
+</ul>
+</section>
+
+<section id="role-of-central-banks" class="title-slide slide level1 center">
+<h1>Role of central banks</h1>
+<ul>
+<li class="fragment"><strong>Monetary policy:</strong> Central banks set interest rates, control the money supply, and influence short-term interest rates.</li>
+<li class="fragment"><strong>Currency regulation:</strong> Central banks issue notes that are legal tender.</li>
+<li class="fragment"><strong>Lender of last resort:</strong> Central banks lend money to other banks during times of crisis to prevent them from collapsing.</li>
+<li class="fragment"><strong>Banking system oversight:</strong> Central banks oversee the banking system and provide banking services to commercial banks, depository institutions, and the federal government.</li>
+<li class="fragment"><strong>Cash reserves:</strong> Central banks keep cash reserves for commercial banks. Commercial banks are required to keep a portion of their deposits in cash reserves with the central bank.</li>
+<li class="fragment"><strong>Financial system stability:</strong> Central banks promote financial system stability, produce economic research/reports.</li>
+</ul>
+</section>
+
+<section id="central-banks" class="title-slide slide level1 center">
+<h1>Central Banks</h1>
+<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+<!-- Row 1 -->
+<div>
+<p><img src="centralbanks/BankEngland.jpg" width="100%" alt="Bank of England"></p>
+</div>
+<div>
+<p><img src="centralbanks/BankJapan.jpg" width="100%" alt="Bank of Japan"></p>
+</div>
+<div>
+<p><img src="centralbanks/BankOfSpain.jpg" width="100%" alt="Bank of Spain"></p>
+</div>
+<!-- Row 2 -->
+<div>
+<p><img src="centralbanks/ECB.jpg" width="100%" alt="European Central Bank"></p>
+</div>
+<div>
+<p><img src="centralbanks/FED.jpg" width="100%" alt="Federal Reserve"></p>
+</div>
+<div>
+<p><img src="centralbanks/SwissNationalBank.png" width="100%" alt="Swiss National Bank"></p>
+</div>
+</div>
+</section>
+
+<section id="interest-rates-6" class="title-slide slide level1 center">
+<h1>Interest Rates</h1>
+
+<img data-src="introduction_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
+
+<section id="interest-rates-7" class="title-slide slide level1 center">
+<h1>Interest Rates</h1>
+<ul>
+<li class="fragment"><strong>Risk</strong> is a force shaping interest rates</li>
+<li class="fragment">Would you prefer $100 today or $100 in one years time? <!-- We prefer $100 today since we can "consume" something but also "invest" it to make a higher return in the future--></li>
+<li class="fragment">Would you prefer $95 today or $100 in one years time? <!-- Depends, if we can invest it and earn more than $100 then we prefer $95 today but if we can't we prefer $100 in one years time - do we value todays consumption more than next years? Do we need food more today? --></li>
+<li class="fragment">Would you prefer $90 today or $100 in one years time?</li>
+<li class="fragment">Choices like these help determine the interest rate. <span class="math display">\[
+\text{Interest Rate} = \dfrac{\text{Future Value} - \text{Present Value}}{\text{Present Value}} \\
+\text{Interest Rate} = \dfrac{\$100 - \$95}{\$95} = 5.26\% \quad \vert \quad 11.11\% \quad \vert \quad 0\%
+\]</span></li>
+<li class="fragment">Minimum interest required in order to prefer $95 today over $100 in a year.</li>
+</ul>
+</section>
+
+<section id="time-value-of-money" class="title-slide slide level1 center">
+<h1>Time Value of Money</h1>
+<ul>
+<li class="fragment">Most people would prefer $100 today over $100 in a year which shows that money has a time value. Money today is worth more than the same amount in the future.</li>
+<li class="fragment">A dollar received in 1 year is worth less than a dollar received today (Inflation, Opportunity Cost, Risk).</li>
+<li class="fragment">Put <span class="math inline">\(\$1\)</span> today in the bank, it earns interest, in one years time we have 1 dollar plus the interest <span class="math inline">\(\$1(1+r)\)</span>.</li>
+<li class="fragment">So a dollar received in the future is worth less than a dollar today.</li>
+<li class="fragment"><strong>Question</strong> - So how much is that dollar actually worth today?</li>
+</ul>
+</section>
+
+<section id="future-value" class="title-slide slide level1 center">
+<h1>Future Value</h1>
+<ul>
+<li class="fragment">What is the Future Value?</li>
+<li class="fragment">If we invest a sum of money at a fixed interest rate for a fixed period of time, the <strong>future value</strong> is the amount of money we will have at the end of the period.
+<ul>
+<li class="fragment">The value of an asset at a future date based on an assumed growth rate.</li>
+<li class="fragment">How much an investment today is worth in the future.</li>
+<li class="fragment">How much our money today will be worth after a certain period.</li>
+</ul></li>
+</ul>
+</section>
+
+<section id="present-value" class="title-slide slide level1 center">
+<h1>Present Value</h1>
+<ul>
+<li class="fragment">What is the Present Value? – Its the current value of a future sum of money (of streams of cash flows). – We discount the Future Value by our estimated Rate of Return. – i.e.&nbsp;A sum of money today is likely worth more than the same sum in the future.</li>
+</ul>
+</section>
+
+<section id="time-lines" class="title-slide slide level1 center">
+<h1>Time lines</h1>
+
+<img data-src="timelines/timeline_1.png" class="r-stretch"><ul>
+<li class="fragment">Want to find the unknown cash flow FV=? at t=3</li>
+<li class="fragment">Single cash outflow invested at t=0</li>
+<li class="fragment">Process going from PV to FV is called <strong>compounding</strong>
+<ul>
+<li class="fragment">Growing money forward in time</li>
+</ul></li>
+<li class="fragment">Process going from FV to PV is called <strong>discounting</strong>
+<ul>
+<li class="fragment">Bringing future money back to its value today</li>
+</ul></li>
+</ul>
+</section>
+
+<section id="definitions" class="title-slide slide level1 center">
+<h1>Definitions</h1>
+<ul>
+<li class="fragment">PV = Present value, or beginning amount = $100.</li>
+<li class="fragment">FV = Future value, or ending amount, after N periods.</li>
+<li class="fragment">CF = Cash flow. Cash flows can be positive or negative.</li>
+<li class="fragment">Interest earned per year and is based on the balance at the beginning of each year, and we assume that it is paid at the end of the year</li>
+</ul>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><strong>Question (10 minutes)</strong></strong></p>
+</div>
+<div class="callout-content">
+<p>We plan to deposit $100 in a bank that pays a guaranteed 5% interest each year.<br>
+How much would you have at the end of Year 3?</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="answer" class="title-slide slide level1 center">
+<h1>Answer</h1>
+
+<img data-src="timelines/timeline_1.png" class="r-stretch"><ul>
+<li class="fragment"><strong>Year 1</strong>
+<ul>
+<li class="fragment">Amount at the end of Year 1: <span class="math inline">\((100 + 5) = 105\)</span></li>
+</ul></li>
+<li class="fragment"><strong>Year 2</strong>
+<ul>
+<li class="fragment">Amount at the end of Year 2: <span class="math inline">\((100 + 5.25) = 110.25\)</span></li>
+</ul></li>
+<li class="fragment"><strong>Year 3</strong>
+<ul>
+<li class="fragment">Final balance at the end of process: <span class="math inline">\((115.76)\)</span></li>
+</ul></li>
+</ul>
+</section>
+
+<section id="answer-1" class="title-slide slide level1 center">
+<h1>Answer</h1>
+
+<img data-src="introduction_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
+
+<section id="present-value-1" class="title-slide slide level1 center">
+<h1>Present Value</h1>
+<ul>
+<li class="fragment"><p><strong>Finding Present Value (PV)</strong> is the reverse of finding <strong>Future Value (FV)</strong>.</p></li>
+<li class="fragment"><p><strong>Future Value</strong>: <span class="math inline">\(FV_N = PV \times (1 + I)^N\)</span></p></li>
+<li class="fragment"><p><strong>Present Value</strong>: <span class="math inline">\(PV = \frac{FV_N}{(1 + I)^N}\)</span></p></li>
+</ul>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><strong>Question (10 minutes)</strong></strong></p>
+</div>
+<div class="callout-content">
+<ol type="1">
+<li class="fragment">A broker offers to sell you a Treasury bond that 3 years from now will pay $115.76</li>
+<li class="fragment">A bank is offering a guaranteed 5% interest on three year certificates of deposits (CDs).</li>
+<li class="fragment"><strong>Whats the most we should pay for the bond?</strong></li>
+</ol>
+<ul>
+<li class="fragment"><strong>Definitions</strong>
+<ol type="A">
+<li class="fragment">Treasury bond: An interest-bearing bond issued by the US Treasury</li>
+<li class="fragment">Certificate of deposit, or CD, is a type of savings account offered by banks and credit unions.</li>
+</ol></li>
+</ul>
+<ol start="4" type="1">
+<li class="fragment">If we don’t buy the bond, we will buy the CD.</li>
+<li class="fragment">The 5% rate paid on CDs is our <strong>opportunity cost</strong> or <strong>rate of return</strong> we could earn on an <em>alternative investment of similar risk</em>.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+
+<section id="present-value-2" class="title-slide slide level1 center">
+<h1>Present Value</h1>
+<ol type="1">
+<li class="fragment">We know in t=3 we will get $115.76 from T-bond</li>
+<li class="fragment"><span class="math inline">\(t_2 = 115/1.05 = 110.25\)</span></li>
+<li class="fragment"><span class="math inline">\(t_1 = 110.25/1.05 = 105\)</span></li>
+<li class="fragment"><span class="math inline">\(t_0 = 105/1.05 = 100\)</span></li>
+<li class="fragment">Alternatively; <span class="math inline">\(115.76/(1.05)^3 = 100\)</span></li>
+</ol>
+<ul>
+<li class="fragment">Recall, from FV example. If we invested $100 at 5% it would grow to 115.76 in 3 years.</li>
+<li class="fragment">We would also have $115.76 after 3 years if we bought the T-bond</li>
+<li class="fragment">Question: Whats the most we should pay for the bond?
+<ul>
+<li class="fragment">The most we should pay is $100 - its “fair price”</li>
+<li class="fragment">If we can buy cheaper, we should buy it.</li>
+<li class="fragment">If its more than $100 we buy the CD.</li>
+<li class="fragment">If bond price = $100 then we are indifferent.</li>
+<li class="fragment">100 is the present value of $115.76 due in 3 years at a 5 percent rate</li>
+</ul></li>
+</ul>
+</section>
+
+<section id="present-values-discount-rates" class="title-slide slide level1 center">
+<h1>Present Values discount rates</h1>
+
+<img data-src="introduction_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"><ul>
+<li class="fragment">PV of a sum to be received in the future decreases and approaches zero as the payment date is extended.</li>
+<li class="fragment">A 20% discount rate, $1 million due in 100 years would be worth only $0.0121 today
+<ul>
+<li class="fragment">Why? because $0.0121 would grow to $1 million in 100 years when <strong>compounded</strong> at 20%.</li>
+</ul></li>
+</ul>
+</section>
+
+<section id="present-values-discount-rates-1" class="title-slide slide level1 center">
+<h1>Present Values discount rates</h1>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><strong>Question (10 minutes)</strong></strong></p>
+</div>
+<div class="callout-content">
+<p>What is discounting and how is it related to compounding? How is the FV equation related to the PV equation?</p>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">Discounting is the process of determining the <strong>present value</strong> of a <strong>future</strong> amount of money.</li>
+<li class="fragment">Compounding is the process of determining the <strong>future value</strong> of a <strong>present</strong> amount of money.</li>
+<li class="fragment">Discounting is based on the idea that money today is worth more than money in the future (due to earnings potential)</li>
+<li class="fragment">Compounding involves the growth of money over time as interest is earning on both the principal and interests that accumulate “interest on interest”</li>
+</ul>
+<ol type="1">
+<li class="fragment">Compounding moves forward in time, it takes the present value of money and projects its value into the future.</li>
+<li class="fragment">Discounting moves backwards in time, it takes a future amount of money and determines its equivalent value today.</li>
+</ol>
+<ul>
+<li class="fragment">The present value is the future value discounted by <span class="math inline">\((1+r)^n\)</span></li>
+<li class="fragment">The future value is the present value compounded by <span class="math inline">\((1+r)^n\)</span></li>
+</ul>
+</section>
+
+<section id="present-value-discount-rates" class="title-slide slide level1 center">
+<h1>Present Value discount rates</h1>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><strong>Question (10 minutes)</strong></strong></p>
+</div>
+<div class="callout-content">
+<p>Suppose a U.S. government bond promises to pay $2249.73 in 3 years at an interest rate of 4%. How much is the bond worth today? How would it change if the bond matured in 5 years? What if the interest rate on the 5 year bond were 6%?</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># Given values</span></span>
+<span id="cb1-2"><a href=""></a>FV <span class="ot">=</span> <span class="fl">2249.73</span></span>
+<span id="cb1-3"><a href=""></a></span>
+<span id="cb1-4"><a href=""></a><span class="co"># Case 1: Bond matures in 3 years at 4% interest</span></span>
+<span id="cb1-5"><a href=""></a>r1 <span class="ot">=</span> <span class="fl">0.04</span></span>
+<span id="cb1-6"><a href=""></a>N1 <span class="ot">=</span> <span class="dv">3</span></span>
+<span id="cb1-7"><a href=""></a>PV1 <span class="ot">=</span> FV <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> r1) <span class="sc">**</span> N1</span>
+<span id="cb1-8"><a href=""></a></span>
+<span id="cb1-9"><a href=""></a><span class="co"># Case 2: Bond matures in 5 years at 4% interest</span></span>
+<span id="cb1-10"><a href=""></a>N2 <span class="ot">=</span> <span class="dv">5</span></span>
+<span id="cb1-11"><a href=""></a>PV2 <span class="ot">=</span> FV <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> r1) <span class="sc">**</span> N2</span>
+<span id="cb1-12"><a href=""></a></span>
+<span id="cb1-13"><a href=""></a><span class="co"># Case 3: Bond matures in 5 years at 6% interest</span></span>
+<span id="cb1-14"><a href=""></a>r2 <span class="ot">=</span> <span class="fl">0.06</span></span>
+<span id="cb1-15"><a href=""></a>PV3 <span class="ot">=</span> FV <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> r2) <span class="sc">**</span> N2</span>
+<span id="cb1-16"><a href=""></a></span>
+<span id="cb1-17"><a href=""></a><span class="fu">print</span>(<span class="st">"</span></span>
+<span id="cb1-18"><a href=""></a><span class="st">      Bond matures in 3 years at 4% interest: The bond is worth approximately $2000.00 today. </span><span class="sc">\n</span></span>
+<span id="cb1-19"><a href=""></a><span class="st">      Bond matures in 5 years at 4% interest: The bond is worth approximately $1849.11 today. </span><span class="sc">\n</span></span>
+<span id="cb1-20"><a href=""></a><span class="st">      Bond matures in 5 years at 6% interest: The bond is worth approximately $1681.13 today. </span><span class="sc">\n</span></span>
+<span id="cb1-21"><a href=""></a><span class="st">      As you can see, the present value decreases as the maturity lengthens or the interest rate increases.</span></span>
+<span id="cb1-22"><a href=""></a><span class="st">      "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "\n      Bond matures in 3 years at 4% interest: The bond is worth approximately $2000.00 today. \n\n      Bond matures in 5 years at 4% interest: The bond is worth approximately $1849.11 today. \n\n      Bond matures in 5 years at 6% interest: The bond is worth approximately $1681.13 today. \n\n      As you can see, the present value decreases as the maturity lengthens or the interest rate increases.\n      "</code></pre>
+</div>
+</div>
+</section>
+
+<section id="present-value-discount-rates-1" class="title-slide slide level1 center">
+<h1>Present Value discount rates</h1>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><strong>Question (10 minutes)</strong></strong></p>
+</div>
+<div class="callout-content">
+<p>How much would $1,000,000 due in 100 years be worth today if the discount rate was 5% and then 20%?</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co"># Given values</span></span>
+<span id="cb3-2"><a href=""></a>FV <span class="ot">=</span> <span class="dv">1000000</span></span>
+<span id="cb3-3"><a href=""></a>N <span class="ot">=</span> <span class="dv">100</span></span>
+<span id="cb3-4"><a href=""></a></span>
+<span id="cb3-5"><a href=""></a><span class="co"># Case 1: Discount rate of 5%</span></span>
+<span id="cb3-6"><a href=""></a>r1 <span class="ot">=</span> <span class="fl">0.05</span></span>
+<span id="cb3-7"><a href=""></a>PV1 <span class="ot">=</span> FV <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> r1) <span class="sc">**</span> N</span>
+<span id="cb3-8"><a href=""></a></span>
+<span id="cb3-9"><a href=""></a><span class="co"># Case 2: Discount rate of 20%</span></span>
+<span id="cb3-10"><a href=""></a>r2 <span class="ot">=</span> <span class="fl">0.20</span></span>
+<span id="cb3-11"><a href=""></a>PV2 <span class="ot">=</span> FV <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> r2) <span class="sc">**</span> N</span>
+<span id="cb3-12"><a href=""></a></span>
+<span id="cb3-13"><a href=""></a><span class="fu">print</span>(<span class="st">"</span></span>
+<span id="cb3-14"><a href=""></a><span class="st">      With a 5% discount rate: The present value is approximately $7,604.49.</span></span>
+<span id="cb3-15"><a href=""></a><span class="st">      With a 20% discount rate: The present value is approximately $0.01.</span></span>
+<span id="cb3-16"><a href=""></a><span class="st">      "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "\n      With a 5% discount rate: The present value is approximately $7,604.49.\n      With a 20% discount rate: The present value is approximately $0.01.\n      "</code></pre>
+</div>
+</div>
+</section>
+
+<section id="finding-the-interest-rate" class="title-slide slide level1 center">
+<h1>Finding the interest rate</h1>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><strong>Question (10 minutes)</strong></strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li class="fragment">Suppose we know a bond costs $100 and will return $150 after 10 years (we know PV, FV and N)</li>
+<li class="fragment">We want to find the rate of return on the bond.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section id="finding-the-interest-rate-1" class="title-slide slide level1 smaller center">
+<h1>Finding the Interest Rate</h1>
+<ol type="1">
+<li class="fragment">Start with the future value formula:</li>
+</ol>
+<p><span class="math display">\[
+FV = PV \times (1 + i)^n
+\]</span></p>
+<ol start="2" type="1">
+<li class="fragment">Divide both sides by <span class="math inline">\(PV\)</span>:</li>
+</ol>
+<p><span class="math display">\[
+\frac{FV}{PV} = (1 + i)^n
+\]</span></p>
+<ol start="3" type="1">
+<li class="fragment">Take the <span class="math inline">\(n\)</span>-th root of both sides:</li>
+</ol>
+<p><span class="math display">\[
+\left( \frac{FV}{PV} \right)^{\frac{1}{n}} = 1 + i
+\]</span></p>
+<ol start="4" type="1">
+<li class="fragment">Subtract 1 from both sides to isolate <span class="math inline">\(i\)</span>:</li>
+</ol>
+<p><span class="math display">\[
+i = \left( \frac{FV}{PV} \right)^{\frac{1}{n}} - 1
+\]</span></p>
+<ol start="4" type="1">
+<li class="fragment">Plug in the values</li>
+</ol>
+<p><span class="math display">\[
+i = \left( \frac{150}{100} \right)^{\frac{1}{10}} - 1 \\
+i = 4.14%
+\]</span></p>
+</section>
+
+<section id="finding-the-interest-rate-2" class="title-slide slide level1 center">
+<h1>Finding the interest rate</h1>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><strong>Question (10 minutes)</strong></strong></p>
+</div>
+<div class="callout-content">
+<p>U.S. Treasury offers to sell a bond for $585.43. No payments will be made until the bond matures in 10 years from now, at which time it will be redeemed for $1000. What interest rate would you earn if you bought the bond? What rate of return would you earn if you could buy the bond for %550 or for $600? - We know FV - We know PV - We know N</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="co"># Given values</span></span>
+<span id="cb5-2"><a href=""></a>FV <span class="ot">=</span> <span class="dv">1000</span></span>
+<span id="cb5-3"><a href=""></a>N <span class="ot">=</span> <span class="dv">10</span></span>
+<span id="cb5-4"><a href=""></a></span>
+<span id="cb5-5"><a href=""></a><span class="co"># Case 1: Buying the bond for $585.43</span></span>
+<span id="cb5-6"><a href=""></a>PV1 <span class="ot">=</span> <span class="fl">585.43</span></span>
+<span id="cb5-7"><a href=""></a>r1 <span class="ot">=</span> (FV <span class="sc">/</span> PV1) <span class="sc">**</span> (<span class="dv">1</span> <span class="sc">/</span> N) <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb5-8"><a href=""></a></span>
+<span id="cb5-9"><a href=""></a><span class="co"># Case 2: Buying the bond for $550</span></span>
+<span id="cb5-10"><a href=""></a>PV2 <span class="ot">=</span> <span class="dv">550</span></span>
+<span id="cb5-11"><a href=""></a>r2 <span class="ot">=</span> (FV <span class="sc">/</span> PV2) <span class="sc">**</span> (<span class="dv">1</span> <span class="sc">/</span> N) <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb5-12"><a href=""></a></span>
+<span id="cb5-13"><a href=""></a><span class="co"># Case 3: Buying the bond for $600</span></span>
+<span id="cb5-14"><a href=""></a>PV3 <span class="ot">=</span> <span class="dv">600</span></span>
+<span id="cb5-15"><a href=""></a>r3 <span class="ot">=</span> (FV <span class="sc">/</span> PV3) <span class="sc">**</span> (<span class="dv">1</span> <span class="sc">/</span> N) <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb5-16"><a href=""></a></span>
+<span id="cb5-17"><a href=""></a><span class="fu">print</span>(<span class="st">"</span></span>
+<span id="cb5-18"><a href=""></a><span class="st">      If you buy the bond for $585.43, the rate of return is approximately 5.50% per year.</span></span>
+<span id="cb5-19"><a href=""></a><span class="st">      If you buy the bond for $550, the rate of return is approximately 6.16% per year.</span></span>
+<span id="cb5-20"><a href=""></a><span class="st">      If you buy the bond for $600, the rate of return is approximately 5.24% per year.</span></span>
+<span id="cb5-21"><a href=""></a><span class="st">      "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "\n      If you buy the bond for $585.43, the rate of return is approximately 5.50% per year.\n      If you buy the bond for $550, the rate of return is approximately 6.16% per year.\n      If you buy the bond for $600, the rate of return is approximately 5.24% per year.\n      "</code></pre>
+</div>
+</div>
+</section>
+
+<section id="finding-the-interest-rate-3" class="title-slide slide level1 center">
+<h1>Finding the interest rate</h1>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><strong>Question (10 minutes)</strong></strong></p>
+</div>
+<div class="callout-content">
+<p>Microsoft earned $0.12 per share in 1994. 10 Years later, in 2004, it earned $0.14. What was the growth rate in Microsoft’s earnings per share (EPS) over 10 years?</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="co"># Given values</span></span>
+<span id="cb7-2"><a href=""></a>EPS_initial <span class="ot">=</span> <span class="fl">0.12</span></span>
+<span id="cb7-3"><a href=""></a>EPS_final <span class="ot">=</span> <span class="fl">0.14</span></span>
+<span id="cb7-4"><a href=""></a>N <span class="ot">=</span> <span class="dv">10</span></span>
+<span id="cb7-5"><a href=""></a></span>
+<span id="cb7-6"><a href=""></a><span class="co"># Calculate CAGR (Compound Annual Growth Rate)</span></span>
+<span id="cb7-7"><a href=""></a>CAGR <span class="ot">=</span> (EPS_final <span class="sc">/</span> EPS_initial) <span class="sc">**</span> (<span class="dv">1</span> <span class="sc">/</span> N) <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb7-8"><a href=""></a>CAGR</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.01553449</code></pre>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">print</span>(<span class="st">"</span></span>
+<span id="cb9-2"><a href=""></a><span class="st">      The compound annual growth rate (CAGR) of Microsoft's earnings per share (EPS) over the 10-year period from 1994 to 2004 is approximately 1.55% per year.</span></span>
+<span id="cb9-3"><a href=""></a><span class="st">      "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "\n      The compound annual growth rate (CAGR) of Microsoft's earnings per share (EPS) over the 10-year period from 1994 to 2004 is approximately 1.55% per year.\n      "</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment">Compound Annual Growth Rate (CAGR) is conceptually similar to an interest rate.</li>
+<li class="fragment">Both describe the rate at which an investment or value grows over time.</li>
+</ul>
+</section>
+
+<section id="finding-the-number-of-years" class="title-slide slide level1 center">
+<h1>Finding the number of years</h1>
+<ul>
+<li class="fragment">We might want to know how long it will take to accumulate a given sum of money</li>
+<li class="fragment">i.e.&nbsp;We know what we have and how much we want and we know various rates of returns</li>
+<li class="fragment">How long will it take us to get to our objective amount of money?</li>
+</ul>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><strong>Question (10 minutes)</strong></strong></p>
+</div>
+<div class="callout-content">
+<p>We believe that we could retire comfortably if we had $1 million, our current savings is $500,000 and we found an investment product which gives us 4.5% We want to know our retirement date!</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="co"># Given values</span></span>
+<span id="cb11-2"><a href=""></a>PV <span class="ot">&lt;-</span> <span class="dv">500000</span></span>
+<span id="cb11-3"><a href=""></a>FV <span class="ot">&lt;-</span> <span class="dv">1000000</span></span>
+<span id="cb11-4"><a href=""></a>r <span class="ot">&lt;-</span> <span class="fl">0.045</span></span>
+<span id="cb11-5"><a href=""></a></span>
+<span id="cb11-6"><a href=""></a><span class="co"># Calculate the number of years (N) to reach $1 million</span></span>
+<span id="cb11-7"><a href=""></a>N <span class="ot">&lt;-</span> <span class="fu">log</span>(FV <span class="sc">/</span> PV) <span class="sc">/</span> <span class="fu">log</span>(<span class="dv">1</span> <span class="sc">+</span> r)</span>
+<span id="cb11-8"><a href=""></a></span>
+<span id="cb11-9"><a href=""></a><span class="co"># Print the result</span></span>
+<span id="cb11-10"><a href=""></a><span class="fu">cat</span>(<span class="st">"It will take approximately"</span>, <span class="fu">round</span>(N, <span class="dv">2</span>), <span class="st">"years for your savings of $500,000 to grow to $1,000,000 at an interest rate of 4.5%. This means you could retire comfortably in about"</span>, <span class="fu">round</span>(N), <span class="st">"years.</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>It will take approximately 15.75 years for your savings of $500,000 to grow to $1,000,000 at an interest rate of 4.5%. This means you could retire comfortably in about 16 years.</code></pre>
+</div>
+</div>
+</section>
+
+<section id="finding-the-number-of-years-1" class="title-slide slide level1 smaller center">
+<h1>Finding the number of years</h1>
+<p><span class="math display">\[
+FV = PV \times (1 + i)^n
+\]</span></p>
+<p>Rearrange to solve for (n):</p>
+<p><span class="math display">\[
+\frac{FV}{PV} = (1 + i)^n
+\]</span></p>
+<p>Taking the natural logarithm of both sides:</p>
+<p><span class="math display">\[
+\ln\left( \frac{FV}{PV} \right) = \ln(1 + i)^n
+\]</span></p>
+<p>Which simplifies to:</p>
+<p><span class="math display">\[
+\ln\left( \frac{FV}{PV} \right) = n \times \ln(1 + i)
+\]</span></p>
+<p>Finally, solving for (n):</p>
+<p><span class="math display">\[
+n = \frac{\ln\left( \frac{FV}{PV} \right)}{\ln(1 + i)}
+\]</span></p>
+</section>
+
+<section id="finding-the-number-of-years-2" class="title-slide slide level1 smaller center">
+<h1>Finding the number of years</h1>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><strong>Question (10 minutes)</strong></strong></p>
+</div>
+<div class="callout-content">
+<p>How long would it take $1,000 to double if we invested in a savings account that pays 6% annually? How long at 10%?</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="co"># Given values</span></span>
+<span id="cb13-2"><a href=""></a>PV <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb13-3"><a href=""></a>FV <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> PV  <span class="co"># Doubling the initial investment</span></span>
+<span id="cb13-4"><a href=""></a></span>
+<span id="cb13-5"><a href=""></a><span class="co"># Interest rates</span></span>
+<span id="cb13-6"><a href=""></a>r1 <span class="ot">&lt;-</span> <span class="fl">0.06</span>  <span class="co"># 6% interest</span></span>
+<span id="cb13-7"><a href=""></a>r2 <span class="ot">&lt;-</span> <span class="fl">0.10</span>  <span class="co"># 10% interest</span></span>
+<span id="cb13-8"><a href=""></a></span>
+<span id="cb13-9"><a href=""></a><span class="co"># Calculate the number of years (N) to double the investment at 6% and 10%</span></span>
+<span id="cb13-10"><a href=""></a>N1 <span class="ot">&lt;-</span> <span class="fu">log</span>(FV <span class="sc">/</span> PV) <span class="sc">/</span> <span class="fu">log</span>(<span class="dv">1</span> <span class="sc">+</span> r1)</span>
+<span id="cb13-11"><a href=""></a>N2 <span class="ot">&lt;-</span> <span class="fu">log</span>(FV <span class="sc">/</span> PV) <span class="sc">/</span> <span class="fu">log</span>(<span class="dv">1</span> <span class="sc">+</span> r2)</span>
+<span id="cb13-12"><a href=""></a></span>
+<span id="cb13-13"><a href=""></a><span class="co"># Print the results</span></span>
+<span id="cb13-14"><a href=""></a><span class="fu">cat</span>(<span class="st">"At 6% interest, it will take approximately"</span>, <span class="fu">round</span>(N1, <span class="dv">2</span>), <span class="st">"years to double your investment.</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>At 6% interest, it will take approximately 11.9 years to double your investment.</code></pre>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">cat</span>(<span class="st">"At 10% interest, it will take approximately"</span>, <span class="fu">round</span>(N2, <span class="dv">2</span>), <span class="st">"years to double your investment.</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>At 10% interest, it will take approximately 7.27 years to double your investment.</code></pre>
+</div>
+</div>
+</section>
+
+<section id="finding-the-number-of-years-3" class="title-slide slide level1 smaller center">
+<h1>Finding the number of years</h1>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><strong>Question (10 minutes)</strong></strong></p>
+</div>
+<div class="callout-content">
+<p>Microsoft’s EPS were $1.04 in 2004 and its CAGR in the prior 10 years was 24.1% per year! If that growth rate was maintained, how long would it take for the EPS to double?</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="co"># Given values</span></span>
+<span id="cb17-2"><a href=""></a>r <span class="ot">&lt;-</span> <span class="fl">0.241</span>  <span class="co"># CAGR of 24.1%</span></span>
+<span id="cb17-3"><a href=""></a></span>
+<span id="cb17-4"><a href=""></a><span class="co"># Calculate the number of years (N) to double the EPS</span></span>
+<span id="cb17-5"><a href=""></a>N <span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="dv">2</span>) <span class="sc">/</span> <span class="fu">log</span>(<span class="dv">1</span> <span class="sc">+</span> r)</span>
+<span id="cb17-6"><a href=""></a></span>
+<span id="cb17-7"><a href=""></a><span class="co"># Print the result</span></span>
+<span id="cb17-8"><a href=""></a><span class="fu">cat</span>(<span class="st">"At a CAGR of 24.1%, it will take approximately"</span>, <span class="fu">round</span>(N, <span class="dv">2</span>), <span class="st">"years for the EPS to double.</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>At a CAGR of 24.1%, it will take approximately 3.21 years for the EPS to double.</code></pre>
+</div>
+</div>
+</section>
+
+<section id="uneven-cash-flows" class="title-slide slide level1 center">
+<h1>Uneven cash flows</h1>
+<ul>
+<li class="fragment">Many financial payments involve uneven cash flows. – i.e.&nbsp;Dividends on stocks typically increase over time. – We denote Cash Flows for uneven cash flows
+<ul>
+<li class="fragment">Cash flows can be:
+<ol type="1">
+<li class="fragment">Streams of payments + additional final lump sum (bonds)</li>
+<li class="fragment">all other uneven streams (stocks and capital investments)</li>
+</ol></li>
+</ul></li>
+</ul>
+</section>
+
+<section id="uneven-cash-flows-1" class="title-slide slide level1 center">
+<h1>Uneven cash flows</h1>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><strong>Question (10 minutes)</strong></strong></p>
+</div>
+<div class="callout-content">
+<p>Find the present values of the following 2 streams of cash flows. <span class="math display">\[PV = \dfrac{CF_{1}}{(1+i_{1})} + \dfrac{CF_{2}}{(1+i_{2})^2} + \dfrac{CF_{3}}{(1+i_{3})^3} + \dots + \dfrac{CF_{n}}{(1+i_{N})^N}\]</span> <span class="math display">\[PV = \sum_{t=1}^{n} \dfrac{CF_t}{(1+i_t)^t}\]</span></p>
+</div>
+</div>
+</div>
+
+<img data-src="timelines/timeline_3.png" class="r-stretch"></section>
+
+<section id="uneven-cash-flows-2" class="title-slide slide level1 center">
+<h1>Uneven cash flows</h1>
+
+<img data-src="timelines/timeline_4.png" class="r-stretch"></section>
+
+<section id="uneven-cash-flows-3" class="title-slide slide level1 center">
+<h1>Uneven cash flows</h1>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><strong>Question (10 minutes)</strong></strong></p>
+</div>
+<div class="callout-content">
+<p>Whats the present value of the following uneven cash flow streams? $0 at Time 0, $100 in Year 1 (or at Time 1), $200 in Year 2, $0 in Year 3, and $400 in Year 4 if the interest rate is 8 percent?</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a>CF <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">0</span>, <span class="dv">400</span>)  <span class="co"># Cash flows</span></span>
+<span id="cb19-2"><a href=""></a>i <span class="ot">&lt;-</span> <span class="fl">0.08</span>  <span class="co"># Interest rate</span></span>
+<span id="cb19-3"><a href=""></a></span>
+<span id="cb19-4"><a href=""></a><span class="co"># Calculate Present Value (PV)</span></span>
+<span id="cb19-5"><a href=""></a>PV <span class="ot">&lt;-</span> <span class="fu">sum</span>(CF <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> i)<span class="sc">^</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">4</span>))  <span class="co"># 0:4 represents the time periods 0 to 4</span></span>
+<span id="cb19-6"><a href=""></a></span>
+<span id="cb19-7"><a href=""></a><span class="co"># Print the result</span></span>
+<span id="cb19-8"><a href=""></a><span class="fu">cat</span>(<span class="st">"The present value of the cash flows is:"</span>, <span class="fu">round</span>(PV, <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>The present value of the cash flows is: 558.07 </code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment"><span class="math display">\[ PV = \frac{0}{(1 + 0.08)^0} + \frac{100}{(1 + 0.08)^1} + \frac{200}{(1 + 0.08)^2} + \frac{0}{(1 + 0.08)^3} + \frac{400}{(1 + 0.08)^4}\]</span></li>
+<li class="fragment"><span class="math display">\[ PV = \sum_{t=1}^{4} \frac{CF_t}{(1 + 0.08)^t}\]</span></li>
+</ul>
+</section>
+
+<section id="risk-adjusted-value-two-basic-propositions" class="title-slide slide level1 center">
+<h1>Risk Adjusted Value: Two Basic Propositions</h1>
+<ul>
+<li class="fragment">The value of an asset is the risk-adjusted <strong>present value</strong> of the cash flows</li>
+<li class="fragment"><span class="math display">\[\text{Value of asset} = \dfrac{E(CF_1)}{(1+r)} + \dfrac{E(CF_2)}{(1+r)^2} + \dfrac{E(CF_3)}{(1+r)^3} + \dots + \dfrac{E(CF_n)}{(1+r)^n}\]</span>
+<ul>
+<li class="fragment">If <strong>IT</strong> does not affect the expected cash flows or the riskiness of the cash flows, <strong>IT</strong> cannot affect value.</li>
+<li class="fragment">For an asset to have value, the expected cash flows have to be positive some time over the life of the asset.</li>
+<li class="fragment">Assets that generate cash flows early in their life will be worth <strong>more</strong> than assets that generate cash flows later. (Time value of money)</li>
+</ul></li>
+</ul>
+</section>
+
+<section id="net-present-value-question" class="title-slide slide level1 center">
+<h1>Net Present Value (Question)</h1>
+<p>Our manager has come to us and asked us to evaluate two potential projects that the company could invest in. We are asked to evaluate which project is the best one. The <strong>discount rate</strong> is 7% for both projects. Each project lasts 5 years, the initial investment for each project is 15000 and <span class="math inline">\(\$20000\)</span> respectively. The cash flows for each of the projects are the following:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="cuphpnuvmc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#cuphpnuvmc table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#cuphpnuvmc thead, #cuphpnuvmc tbody, #cuphpnuvmc tfoot, #cuphpnuvmc tr, #cuphpnuvmc td, #cuphpnuvmc th {
+  border-style: none;
+}
+
+#cuphpnuvmc p {
+  margin: 0;
+  padding: 0;
+}
+
+#cuphpnuvmc .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#cuphpnuvmc .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#cuphpnuvmc .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#cuphpnuvmc .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#cuphpnuvmc .gt_heading {
+  background-color: #BEBEBE;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#cuphpnuvmc .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cuphpnuvmc .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#cuphpnuvmc .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 14px;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#cuphpnuvmc .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 14px;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#cuphpnuvmc .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#cuphpnuvmc .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#cuphpnuvmc .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#cuphpnuvmc .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#cuphpnuvmc .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#cuphpnuvmc .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#cuphpnuvmc .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#cuphpnuvmc .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#cuphpnuvmc .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#cuphpnuvmc .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cuphpnuvmc .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#cuphpnuvmc .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#cuphpnuvmc .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#cuphpnuvmc .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cuphpnuvmc .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#cuphpnuvmc .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#cuphpnuvmc .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cuphpnuvmc .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cuphpnuvmc .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#cuphpnuvmc .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cuphpnuvmc .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#cuphpnuvmc .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cuphpnuvmc .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#cuphpnuvmc .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cuphpnuvmc .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#cuphpnuvmc .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cuphpnuvmc .gt_left {
+  text-align: left;
+}
+
+#cuphpnuvmc .gt_center {
+  text-align: center;
+}
+
+#cuphpnuvmc .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#cuphpnuvmc .gt_font_normal {
+  font-weight: normal;
+}
+
+#cuphpnuvmc .gt_font_bold {
+  font-weight: bold;
+}
+
+#cuphpnuvmc .gt_font_italic {
+  font-style: italic;
+}
+
+#cuphpnuvmc .gt_super {
+  font-size: 65%;
+}
+
+#cuphpnuvmc .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#cuphpnuvmc .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#cuphpnuvmc .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#cuphpnuvmc .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#cuphpnuvmc .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#cuphpnuvmc .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#cuphpnuvmc .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#cuphpnuvmc .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#cuphpnuvmc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_heading">
+<th colspan="3" class="gt_heading gt_title gt_font_normal">Cash Flow Streams</th>
+</tr>
+<tr class="odd gt_heading">
+<th colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Comparing Project A and Project B</th>
+</tr>
+<tr class="header gt_col_headings">
+<th id="Year" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Year</th>
+<th id="Project.A" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Project A</th>
+<th id="Project.B" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Project B</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_right" headers="Year" style="border-top-width: 2px; border-top-style: solid; border-top-color: black; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black">0</td>
+<td class="gt_row gt_right" headers="Project.A" style="border-top-width: 2px; border-top-style: solid; border-top-color: black; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black">−$15,000.00</td>
+<td class="gt_row gt_right" headers="Project.B" style="border-top-width: 2px; border-top-style: solid; border-top-color: black; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black">−$20,000.00</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="Year">1</td>
+<td class="gt_row gt_right" headers="Project.A">$3,000.00</td>
+<td class="gt_row gt_right" headers="Project.B">$2,000.00</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="Year">2</td>
+<td class="gt_row gt_right" headers="Project.A">$3,000.00</td>
+<td class="gt_row gt_right" headers="Project.B">$4,000.00</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="Year">3</td>
+<td class="gt_row gt_right" headers="Project.A">$5,000.00</td>
+<td class="gt_row gt_right" headers="Project.B">$6,000.00</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="Year">4</td>
+<td class="gt_row gt_right" headers="Project.A">$5,000.00</td>
+<td class="gt_row gt_right" headers="Project.B">$8,000.00</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="Year">5</td>
+<td class="gt_row gt_right" headers="Project.A">$5,000.00</td>
+<td class="gt_row gt_right" headers="Project.B">$10,000.00</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+
+<section id="net-present-value-solution" class="title-slide slide level1 center">
+<h1>Net Present Value (Solution)</h1>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><strong>Question (10 minutes)</strong></strong></p>
+</div>
+<div class="callout-content">
+<p>Our manager has come to us and asked us to evaluate two potential projects that the company could invest in. We are asked to evaluate which project is the best one. The discount rate is 7% for both projects. Each project lasts 5 years, the initial investment for each project is 15000 and $20000 respectively. The cash flows for each of the projects are the following:</p>
+</div>
+</div>
+</div>
+<p><span class="math display">\[
+NPV_{A} = -15000 + \frac{3000}{(1+0.07)} + \frac{3000}{(1+0.07)^2} + \frac{5000}{(1+0.07)^3} + \frac{5000}{(1+0.07)^4} + \frac{5000}{(1+0.07)^5}
+\]</span></p>
+<p><span class="math display">\[
+NPV_{B} = -20000 + \frac{2000}{(1+0.07)} + \frac{4000}{(1+0.07)^2} + \frac{6000}{(1+0.07)^3} + \frac{8000}{(1+0.07)^4} + \frac{10000}{(1+0.07)^5}
+\]</span></p>
+</section>
+
+<section id="net-present-value-solution-1" class="title-slide slide level1 center">
+<h1>Net Present Value (Solution)</h1>
+<div class="columns" style="font-size: 100%;">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div id="xcflhyawya" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xcflhyawya table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#xcflhyawya thead, #xcflhyawya tbody, #xcflhyawya tfoot, #xcflhyawya tr, #xcflhyawya td, #xcflhyawya th {
+  border-style: none;
+}
+
+#xcflhyawya p {
+  margin: 0;
+  padding: 0;
+}
+
+#xcflhyawya .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#xcflhyawya .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#xcflhyawya .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#xcflhyawya .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#xcflhyawya .gt_heading {
+  background-color: #BEBEBE;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xcflhyawya .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xcflhyawya .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xcflhyawya .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 14px;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#xcflhyawya .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 14px;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#xcflhyawya .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#xcflhyawya .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#xcflhyawya .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#xcflhyawya .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#xcflhyawya .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#xcflhyawya .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#xcflhyawya .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#xcflhyawya .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#xcflhyawya .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#xcflhyawya .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xcflhyawya .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#xcflhyawya .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#xcflhyawya .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#xcflhyawya .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xcflhyawya .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#xcflhyawya .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#xcflhyawya .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xcflhyawya .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xcflhyawya .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#xcflhyawya .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xcflhyawya .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#xcflhyawya .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xcflhyawya .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xcflhyawya .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xcflhyawya .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xcflhyawya .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xcflhyawya .gt_left {
+  text-align: left;
+}
+
+#xcflhyawya .gt_center {
+  text-align: center;
+}
+
+#xcflhyawya .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#xcflhyawya .gt_font_normal {
+  font-weight: normal;
+}
+
+#xcflhyawya .gt_font_bold {
+  font-weight: bold;
+}
+
+#xcflhyawya .gt_font_italic {
+  font-style: italic;
+}
+
+#xcflhyawya .gt_super {
+  font-size: 65%;
+}
+
+#xcflhyawya .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#xcflhyawya .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#xcflhyawya .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#xcflhyawya .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#xcflhyawya .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#xcflhyawya .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#xcflhyawya .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#xcflhyawya .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#xcflhyawya div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_heading">
+<th colspan="3" class="gt_heading gt_title gt_font_normal">Discounted Cash Flow Analysis</th>
+</tr>
+<tr class="odd gt_heading">
+<th colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Comparing Project A and Project B</th>
+</tr>
+<tr class="header gt_col_headings">
+<th id="Year" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Year<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+<th id="ProjectA" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Project A ($)<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+<th id="ProjectB" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Project B ($)<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Year">Year 1</td>
+<td class="gt_row gt_right" headers="ProjectA">$2,803.74</td>
+<td class="gt_row gt_right" headers="ProjectB">$1,869.16</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Year">Year 2</td>
+<td class="gt_row gt_right" headers="ProjectA">$2,620.32</td>
+<td class="gt_row gt_right" headers="ProjectB">$3,493.75</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Year">Year 3</td>
+<td class="gt_row gt_right" headers="ProjectA">$4,081.49</td>
+<td class="gt_row gt_right" headers="ProjectB">$4,897.79</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Year">Year 4</td>
+<td class="gt_row gt_right" headers="ProjectA">$3,814.48</td>
+<td class="gt_row gt_right" headers="ProjectB">$6,103.16</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Year">Year 5</td>
+<td class="gt_row gt_right" headers="ProjectA">$3,564.93</td>
+<td class="gt_row gt_right" headers="ProjectB">$7,129.86</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Year" style="border-top-width: 2px; border-top-style: solid; border-top-color: black; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black; background-color: #000000; color: #FFFFFF">NPV</td>
+<td class="gt_row gt_right" headers="ProjectA" style="border-top-width: 2px; border-top-style: solid; border-top-color: black; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black; background-color: #000000; color: #FFFFFF">$1,884.95</td>
+<td class="gt_row gt_right" headers="ProjectB" style="border-top-width: 2px; border-top-style: solid; border-top-color: black; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black; background-color: #000000; color: #FFFFFF">$3,493.72</td>
+</tr>
+</tbody><tfoot class="gt_footnotes">
+<tr class="odd">
+<td colspan="3" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> All values are presented in present value terms, discounted at 7%</td>
+</tr>
+</tfoot>
+
+</table>
+
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li class="fragment">Both projects profitable.</li>
+<li class="fragment">Project B &gt; Project A.</li>
+<li class="fragment">Also need to consider other factors.
+<ul>
+<li class="fragment">Is the NPV of Project B high enough to warrant a bigger initial investment?</li>
+<li class="fragment">What about intangible benefits, such as strategic positioning and brand equity?</li>
+<li class="fragment">Higher riskier investments might not be captured by NPV.</li>
+<li class="fragment">Market conditions might change and affect the cash flow streams.</li>
+<li class="fragment">Environmental and social impact - is project B more sustainable?</li>
+</ul></li>
+</ul>
+</div></div>
+</section>
+
+<section id="npv-interpretation" class="title-slide slide level1 center">
+<h1>NPV Interpretation</h1>
+<ul>
+<li class="fragment">How do we interpret NPV=0?
+<ul>
+<li class="fragment">The Present Value (PV) of the future cash flows is equal to the initial costs.</li>
+<li class="fragment">The expected return on the project compensates for its level of risk.</li>
+</ul></li>
+<li class="fragment">How do we interpret NPV &gt; 0?
+<ul>
+<li class="fragment">The PV of the future cash flows is higher than the initial costs.</li>
+<li class="fragment">The expected return on the project is above the minimum required for the level of risk it generates.</li>
+<li class="fragment">In colloquial terms, we can say that this investment makes us “richer” or increases the value of the company.</li>
+</ul></li>
+<li class="fragment">How do we interpret NPV &lt; 0?
+<ul>
+<li class="fragment">The PV of the future cash flows is lower than the initial costs.</li>
+<li class="fragment">The expected return on the project is below the minimum required for assuming such a risk.</li>
+<li class="fragment">We can say that this investment reduces our wealth.</li>
+</ul></li>
+</ul>
+</section>
+
+<section id="npv-interpretation-1" class="title-slide slide level1 center">
+<h1>NPV Interpretation</h1>
+<p>The main task of a finance director is to identify projects with positive NPV (Net Present Value).</p>
+<ul>
+<li class="fragment">The idea is to accept (reject) projects with NPV &gt;= 0 (&lt; 0).
+<ul>
+<li class="fragment">When the NPV is positive, we increase our wealth as long as we invest.
+<ul>
+<li class="fragment">The money needed to start a project is less than the PV (Present Value) of the future cash flows that the project generates.</li>
+</ul></li>
+</ul></li>
+<li class="fragment">What can we do if several projects have positive NPVs?
+<ul>
+<li class="fragment">NPVs can be added, therefore increasing the number of positive NPV projects increases our wealth even further.</li>
+</ul></li>
+<li class="fragment">What can we do if all available projects have a negative NPV?
+<ul>
+<li class="fragment">We should not invest in projects with negative NPVs.</li>
+</ul></li>
+</ul>
+</section>
+
+<section id="net-present-value" class="title-slide slide level1 center">
+<h1>Net Present Value</h1>
+<p>Recall;</p>
+<p><span class="math display">\[
+\text{NPV} = I_0 - \dfrac{C_1}{(1+r)^1} + \dfrac{C_2}{(1+r)^2}, ..., \dfrac{C_5}{(1+r)^5} + \dfrac{C_6}{(1+r)^6}
+\]</span></p>
+<p><span class="math display">\[
+\text{NPV} = I_0 - \sum_{t=1}^{T} \dfrac{C_t}{(1+r)^t}
+\]</span></p>
+<p><span class="math display">\[
+\text{Where;} \\
+C_t = \text{Cash flow in period t} \\
+r = \text{Discount rate} \\
+I_0 = \text{Initial investment} \\
+T = \text{Number of periods}
+\]</span></p>
+</section>
+
+<section id="discount-rates" class="title-slide slide level1 center">
+<h1>Discount Rates</h1>
+<p><span class="math display">\[
+200 = 1000 - \sum{\dfrac{200}{1+0}^1 + \dfrac{200}{1+0}^2 + \dfrac{200}{1+0}^3 + \dfrac{200}{1+0}^4 + \dfrac{200}{1+0}^5 + \dfrac{200}{1+0}^6}
+\]</span></p>
+<p><span class="math display">\[
+1083.44 = 1000 - \sum{\dfrac{200}{1+0.03}^1 + \dfrac{200}{1+0.03}^2 + \dfrac{200}{1+0.03}^3 + \dfrac{200}{1+0.03}^4 + \dfrac{200}{1+0.03}^5 + \dfrac{200}{1+0.03}^6}
+\]</span></p>
+<p><span class="math display">\[
+871.05 = 1000 - \sum{\dfrac{200}{1+0.10}^1 + \dfrac{200}{1+0.10}^2 + \dfrac{200}{1+0.10}^3 + \dfrac{200}{1+0.10}^4 + \dfrac{200}{1+0.10}^5 + \dfrac{200}{1+0.10}^6}
+\]</span></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a>r <span class="ot">=</span> <span class="fl">0.10</span></span>
+<span id="cb21-2"><a href=""></a>res <span class="ot">=</span> <span class="dv">200</span><span class="sc">/</span>((<span class="dv">1</span><span class="sc">+</span>r)<span class="sc">^</span><span class="dv">1</span>) <span class="sc">+</span> <span class="dv">200</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span>r)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">200</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span>r)<span class="sc">^</span><span class="dv">3</span> <span class="sc">+</span> <span class="dv">200</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span>r)<span class="sc">^</span><span class="dv">4</span> <span class="sc">+</span> <span class="dv">200</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span>r)<span class="sc">^</span><span class="dv">5</span> <span class="sc">+</span> <span class="dv">200</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span>r)<span class="sc">^</span><span class="dv">6</span></span>
+<span id="cb21-3"><a href=""></a>I_0 <span class="ot">=</span> <span class="dv">1000</span></span>
+<span id="cb21-4"><a href=""></a><span class="fu">print</span>(I_0 <span class="sc">-</span> res)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 128.9479</code></pre>
+</div>
+</div>
+</section>
+
+<section id="discount-rate" class="title-slide slide level1 center">
+<h1>Discount Rate</h1>
+<ul>
+<li class="fragment">How do we determine the discount rate?</li>
+<li class="fragment">The discount rate is the return we expect to get from <strong>alternative</strong> investments with similar risk.
+<ul>
+<li class="fragment"><strong>Risk-Free Rate</strong> - government bonds - <em>no risk</em>.</li>
+<li class="fragment"><strong>Risk Premium</strong> - Added to the <em>risk-free</em> rate to account for the extra risk of the investment.</li>
+<li class="fragment"><strong>Company’s Cost of Capital</strong>: For businesses, it often reflects the Weighted Average Cost of Capital (WACC), considering both debt and equity financing costs.</li>
+</ul></li>
+</ul>
+</section>
+
+<section id="cash-flows-discount-rate" class="title-slide slide level1 center">
+<h1>Cash Flows / Discount Rate</h1>
+
+<img data-src="introduction_files/figure-revealjs/unnamed-chunk-19-1.png" width="960" class="r-stretch"><ul>
+<li class="fragment">As the discount rate increases the <strong>Cash Flows</strong> are worth less today.</li>
+<li class="fragment">The sum of the <strong>cash flows</strong>, the <strong>NPV</strong> decreases as well.</li>
+</ul>
+</section>
+
+<section id="npv-discount-rates" class="title-slide slide level1 center">
+<h1>NPV discount rates</h1>
+
+<img data-src="introduction_files/figure-revealjs/unnamed-chunk-20-1.png" width="960" class="r-stretch"></section>
+
+<section id="importance-of-the-discount-rate" class="title-slide slide level1 center">
+<h1>Importance of the discount rate</h1>
+<ul>
+<li class="fragment"><strong>Reflects risk</strong> - Higher discount rates are used for riskier investments. If the cow’s milk production is uncertain, or milk prices are volatile, you might use a higher discount rate to account for that risk.</li>
+<li class="fragment"><strong>Affects NPV</strong> - A higher discount rate makes future money worth less today, decreasing the NPV. A lower discount rate makes future money worth more today, increasing the NPV.</li>
+<li class="fragment"><strong>Decision-Making</strong> - By adjusting the discount rate, you can make more informed decisions. If even at a high discount rate the NPV remains positive, it signifies a robust investment opportunity.</li>
+<li class="fragment"><strong>Limitations</strong>
+<ul>
+<li class="fragment">NPV is sensitive to the discount rate</li>
+<li class="fragment">NPV is sensitive to the cash flow estimates (we assume we know the future cash-flows)</li>
+</ul></li>
+</ul>
+</section>
+
+<section id="npv-question" class="title-slide slide level1 center">
+<h1>NPV Question</h1>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><strong>Question (10 minutes)</strong></strong></p>
+</div>
+<div class="callout-content">
+<p>Your company produces fertilizer and currently traded at NYSE with latest stock price of $27.3 and 1,000 common shares outstanding. You are thinking to invest in a new product,an organic fertilizer with an initial required investment of $30, 000. You believe that the new organic fertilizer will produce an annual cash revenue of $20, 000 and cash costs (including taxes) will be $14, 000 per year. We will wind down the business in 8 years and the plant, property and equipment will be worth $2, 000 at that time. With a 15% opportunity cost of capital, should you take the investment?</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="npv-solution" class="title-slide slide level1 center">
+<h1>NPV Solution</h1>
+<div class="cell">
+<div class="cell-output-display">
+<div id="vuiicmmmyu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#vuiicmmmyu table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#vuiicmmmyu thead, #vuiicmmmyu tbody, #vuiicmmmyu tfoot, #vuiicmmmyu tr, #vuiicmmmyu td, #vuiicmmmyu th {
+  border-style: none;
+}
+
+#vuiicmmmyu p {
+  margin: 0;
+  padding: 0;
+}
+
+#vuiicmmmyu .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#vuiicmmmyu .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#vuiicmmmyu .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#vuiicmmmyu .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#vuiicmmmyu .gt_heading {
+  background-color: #BEBEBE;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#vuiicmmmyu .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vuiicmmmyu .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#vuiicmmmyu .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 14px;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#vuiicmmmyu .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 14px;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#vuiicmmmyu .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#vuiicmmmyu .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#vuiicmmmyu .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#vuiicmmmyu .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#vuiicmmmyu .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#vuiicmmmyu .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#vuiicmmmyu .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#vuiicmmmyu .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#vuiicmmmyu .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#vuiicmmmyu .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vuiicmmmyu .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#vuiicmmmyu .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#vuiicmmmyu .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#vuiicmmmyu .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vuiicmmmyu .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#vuiicmmmyu .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#vuiicmmmyu .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vuiicmmmyu .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vuiicmmmyu .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#vuiicmmmyu .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vuiicmmmyu .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#vuiicmmmyu .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vuiicmmmyu .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#vuiicmmmyu .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vuiicmmmyu .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#vuiicmmmyu .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vuiicmmmyu .gt_left {
+  text-align: left;
+}
+
+#vuiicmmmyu .gt_center {
+  text-align: center;
+}
+
+#vuiicmmmyu .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#vuiicmmmyu .gt_font_normal {
+  font-weight: normal;
+}
+
+#vuiicmmmyu .gt_font_bold {
+  font-weight: bold;
+}
+
+#vuiicmmmyu .gt_font_italic {
+  font-style: italic;
+}
+
+#vuiicmmmyu .gt_super {
+  font-size: 65%;
+}
+
+#vuiicmmmyu .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#vuiicmmmyu .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#vuiicmmmyu .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#vuiicmmmyu .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#vuiicmmmyu .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#vuiicmmmyu .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#vuiicmmmyu .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#vuiicmmmyu .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#vuiicmmmyu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_heading">
+<th colspan="10" class="gt_heading gt_title gt_font_normal">Net Present Value</th>
+</tr>
+<tr class="odd gt_heading">
+<th colspan="10" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Example</th>
+</tr>
+<tr class="header gt_col_headings">
+<th id="a::stub" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="a0" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">0</th>
+<th id="a1" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">1</th>
+<th id="a2" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">2</th>
+<th id="a3" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">3</th>
+<th id="a4" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">4</th>
+<th id="a5" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">5</th>
+<th id="a6" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">6</th>
+<th id="a7" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">7</th>
+<th id="a8" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">8</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td id="stub_1_1" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">Initial.Cost</td>
+<td class="gt_row gt_right" headers="stub_1_1 0">−$30</td>
+<td class="gt_row gt_right" headers="stub_1_1 1">—</td>
+<td class="gt_row gt_right" headers="stub_1_1 2">—</td>
+<td class="gt_row gt_right" headers="stub_1_1 3">—</td>
+<td class="gt_row gt_right" headers="stub_1_1 4">—</td>
+<td class="gt_row gt_right" headers="stub_1_1 5">—</td>
+<td class="gt_row gt_right" headers="stub_1_1 6">—</td>
+<td class="gt_row gt_right" headers="stub_1_1 7">—</td>
+<td class="gt_row gt_right" headers="stub_1_1 8">—</td>
+</tr>
+<tr class="even">
+<td id="stub_1_2" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">Inflows</td>
+<td class="gt_row gt_right" headers="stub_1_2 0">—</td>
+<td class="gt_row gt_right" headers="stub_1_2 1">$20</td>
+<td class="gt_row gt_right" headers="stub_1_2 2">$20</td>
+<td class="gt_row gt_right" headers="stub_1_2 3">$20</td>
+<td class="gt_row gt_right" headers="stub_1_2 4">$20</td>
+<td class="gt_row gt_right" headers="stub_1_2 5">$20</td>
+<td class="gt_row gt_right" headers="stub_1_2 6">$20</td>
+<td class="gt_row gt_right" headers="stub_1_2 7">$20</td>
+<td class="gt_row gt_right" headers="stub_1_2 8">$20</td>
+</tr>
+<tr class="odd">
+<td id="stub_1_3" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">Outflows</td>
+<td class="gt_row gt_right" headers="stub_1_3 0">—</td>
+<td class="gt_row gt_right" headers="stub_1_3 1">−$14</td>
+<td class="gt_row gt_right" headers="stub_1_3 2">−$14</td>
+<td class="gt_row gt_right" headers="stub_1_3 3">−$14</td>
+<td class="gt_row gt_right" headers="stub_1_3 4">−$14</td>
+<td class="gt_row gt_right" headers="stub_1_3 5">−$14</td>
+<td class="gt_row gt_right" headers="stub_1_3 6">−$14</td>
+<td class="gt_row gt_right" headers="stub_1_3 7">−$14</td>
+<td class="gt_row gt_right" headers="stub_1_3 8">−$14</td>
+</tr>
+<tr class="even">
+<td id="stub_1_4" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">Net.Inflows</td>
+<td class="gt_row gt_right" headers="stub_1_4 0">—</td>
+<td class="gt_row gt_right" headers="stub_1_4 1">$6</td>
+<td class="gt_row gt_right" headers="stub_1_4 2">$6</td>
+<td class="gt_row gt_right" headers="stub_1_4 3">$6</td>
+<td class="gt_row gt_right" headers="stub_1_4 4">$6</td>
+<td class="gt_row gt_right" headers="stub_1_4 5">$6</td>
+<td class="gt_row gt_right" headers="stub_1_4 6">$6</td>
+<td class="gt_row gt_right" headers="stub_1_4 7">$6</td>
+<td class="gt_row gt_right" headers="stub_1_4 8">$6</td>
+</tr>
+<tr class="odd">
+<td id="stub_1_5" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">Salvage</td>
+<td class="gt_row gt_right" headers="stub_1_5 0">—</td>
+<td class="gt_row gt_right" headers="stub_1_5 1">—</td>
+<td class="gt_row gt_right" headers="stub_1_5 2">—</td>
+<td class="gt_row gt_right" headers="stub_1_5 3">—</td>
+<td class="gt_row gt_right" headers="stub_1_5 4">—</td>
+<td class="gt_row gt_right" headers="stub_1_5 5">—</td>
+<td class="gt_row gt_right" headers="stub_1_5 6">—</td>
+<td class="gt_row gt_right" headers="stub_1_5 7">—</td>
+<td class="gt_row gt_right" headers="stub_1_5 8">$2</td>
+</tr>
+<tr class="even">
+<td id="stub_1_6" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">Net.Cash.Flow</td>
+<td class="gt_row gt_right" headers="stub_1_6 0" style="border-top-width: 2px; border-top-style: solid; border-top-color: black; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black; background-color: #000000; color: #FFFFFF">−$30</td>
+<td class="gt_row gt_right" headers="stub_1_6 1" style="border-top-width: 2px; border-top-style: solid; border-top-color: black; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black; background-color: #000000; color: #FFFFFF">$6</td>
+<td class="gt_row gt_right" headers="stub_1_6 2" style="border-top-width: 2px; border-top-style: solid; border-top-color: black; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black; background-color: #000000; color: #FFFFFF">$6</td>
+<td class="gt_row gt_right" headers="stub_1_6 3" style="border-top-width: 2px; border-top-style: solid; border-top-color: black; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black; background-color: #000000; color: #FFFFFF">$6</td>
+<td class="gt_row gt_right" headers="stub_1_6 4" style="border-top-width: 2px; border-top-style: solid; border-top-color: black; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black; background-color: #000000; color: #FFFFFF">$6</td>
+<td class="gt_row gt_right" headers="stub_1_6 5" style="border-top-width: 2px; border-top-style: solid; border-top-color: black; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black; background-color: #000000; color: #FFFFFF">$6</td>
+<td class="gt_row gt_right" headers="stub_1_6 6" style="border-top-width: 2px; border-top-style: solid; border-top-color: black; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black; background-color: #000000; color: #FFFFFF">$6</td>
+<td class="gt_row gt_right" headers="stub_1_6 7" style="border-top-width: 2px; border-top-style: solid; border-top-color: black; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black; background-color: #000000; color: #FFFFFF">$6</td>
+<td class="gt_row gt_right" headers="stub_1_6 8" style="border-top-width: 2px; border-top-style: solid; border-top-color: black; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black; background-color: #000000; color: #FFFFFF">$8</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>The NPV of the new investment is:</p>
+<p><span class="math display">\[
+\text{NPV} = -30,000 + 6,000 \dfrac{(1.15)^8 -1}{0.15(1.15)^8} + \dfrac{2,000}{1.15^8} = -2,422
+\]</span> - The new investment will lose value of <span class="math inline">\(-\$2,422\)</span>. Per share this translates to a loss of <span class="math inline">\(-\$2,422 / 1,000 = -\$2.42\)</span> that will drop the stock price from their current <span class="math inline">\(\$27.3\)</span> to <span class="math inline">\(\$24.9\)</span> (<span class="math inline">\(-9\%\)</span> negative return). - Would you accept this investment?</p>
+</section>
+
+<section id="financial-ratios" class="title-slide slide level1 center">
+<h1>Financial Ratios</h1>
+
+<img data-src="balancesheet.png" class="r-stretch"></section>
+
+<section id="financial-ratios-1" class="title-slide slide level1 center">
+<h1>Financial Ratios</h1>
+<ul>
+<li class="fragment"><strong>Price to Book value</strong>
+<ul>
+<li class="fragment">Total assets of <span class="math inline">\(\$3\)</span> billion</li>
+<li class="fragment">Total liabilities of <span class="math inline">\(\$2\)</span> billion</li>
+<li class="fragment">100 million outstanding shares</li>
+<li class="fragment">Current share price of <span class="math inline">\(\$15\)</span></li>
+<li class="fragment">Book value = <span class="math inline">\(\$3\)</span> - <span class="math inline">\(\$2\)</span> = <span class="math inline">\(\$1\)</span> billion</li>
+<li class="fragment">Per share book value = <span class="math inline">\(\$1\)</span> billion / 100 million shares = <span class="math inline">\(\$10\)</span> per share</li>
+<li class="fragment">Price to book value = <span class="math inline">\(\$15\)</span> / <span class="math inline">\(\$10\)</span> = <span class="math inline">\(1.5\)</span></li>
+</ul></li>
+</ul>
+</section>
+
+<section id="financial-ratios-2" class="title-slide slide level1 center">
+<h1>Financial Ratios</h1>
+<ul>
+<li class="fragment"><strong>Price to sales</strong>
+<ul>
+<li class="fragment">Lower P/S ratio - more attractive the investment</li>
+<li class="fragment">Sales is 500 million</li>
+<li class="fragment">100 million outstanding shares</li>
+<li class="fragment">Current share price of <span class="math inline">\(\$15\)</span></li>
+<li class="fragment">Per share sales = <span class="math inline">\(\$500\)</span> million / 100 million shares = <span class="math inline">\(\$5\)</span> per share</li>
+<li class="fragment">Price to sales = <span class="math inline">\(\$15\)</span> / <span class="math inline">\(\$5\)</span> = <span class="math inline">\(3\)</span></li>
+</ul></li>
+</ul>
+</section>
+
+<section id="financial-ratios-3" class="title-slide slide level1 center">
+<h1>Financial Ratios</h1>
+<ul>
+<li class="fragment"><strong>Price to earnings</strong>
+<ul>
+<li class="fragment">Earnings per share = Net Income / shares outstanding</li>
+<li class="fragment">Net income is 200 million</li>
+<li class="fragment">100 million outstanding shares</li>
+<li class="fragment">Current share price of <span class="math inline">\(\$15\)</span></li>
+<li class="fragment">Earnings per share = <span class="math inline">\(\$200\)</span> million / 100 million shares = <span class="math inline">\(\$2\)</span> per share</li>
+<li class="fragment">Price to earnings ratio = market value per share / earnings per share</li>
+<li class="fragment">Price to earnings = <span class="math inline">\(\$15\)</span> / <span class="math inline">\(\$2\)</span> = <span class="math inline">\(7.5\)</span></li>
+</ul></li>
+</ul>
+</section>
+
+<section id="property-valuation" class="title-slide slide level1 center">
+<h1>Property valuation</h1>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><strong>Question (10 minutes)</strong></strong></p>
+</div>
+<div class="callout-content">
+<p>How would you value a property? In BCN/Surrounding area</p>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">If we are valuing a property, we could value it from the ground up - brick and mortar (net asset approach to valuing a property/company)</li>
+<li class="fragment">Could look at similar houses and see if ours is worth something similar. (multiples based approach)</li>
+<li class="fragment">Value a property but looking at the rental income it generates (DCF approach)</li>
+</ul>
+</section>
+
+<section id="property-evaluation" class="title-slide slide level1 center">
+<h1>Property Evaluation</h1>
+
+<img data-src="multiplesBasedEvaluationProperty.png" class="r-stretch"></section>
+
+<section id="property-evauation" class="title-slide slide level1 center">
+<h1>Property Evauation</h1>
+<div class="columns" style="font-size: 100%;">
+<div class="column" style="width:50%;">
+<p><img data-src="DCF_Properties.png"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="probabilityDCF.png"></p>
+</div></div>
+</section>
+
+<section id="discounted-cash-flow-dcf" class="title-slide slide level1 center">
+<h1>Discounted Cash Flow (DCF)</h1>
+<ul>
+<li class="fragment">Fair Value
+<ul>
+<li class="fragment">The fair value of a stock is the present value of all future cash flows.</li>
+<li class="fragment">A company earns <em>cash flows</em> and we expect them to earn the same in the future.</li>
+<li class="fragment">We discount the future cash flows back to today</li>
+<li class="fragment">We can obtain a fair value per share for a company.</li>
+</ul></li>
+</ul>
+</section>
+
+<section id="discounted-cash-flow-example" class="title-slide slide level1 center">
+<h1>Discounted Cash Flow (Example)</h1>
+<ul>
+<li class="fragment">Forecast that a company is going to generate <span class="math inline">\(\$100\)</span> million every year for 5 years.</li>
+<li class="fragment">What do we think the company is worth? 500 million?</li>
+<li class="fragment">Time value of money - is <span class="math inline">\(\$100\)</span> million in 5 years worth the same as <span class="math inline">\(\$100\)</span> million today?</li>
+<li class="fragment">Inflation erodes the value of money over time.</li>
+<li class="fragment">We need to *<strong>discount</strong> the future values back to the present value (today) <span class="math display">\[
+PV = \dfrac{FV}{(1+r)^{n}}
+\]</span></li>
+<li class="fragment">So 100m in 1 years time is roughly worth 90m today, 100m in 5 years time is roughly equal to 62m today etc.</li>
+<li class="fragment">The higher the interest rates, the lower the value of the cash flows and therefore lower the value of the firm overall.</li>
+<li class="fragment">If company issues 100m shares then each share is worth about <span class="math inline">\(\$3.79\)</span> a share (when IR are <span class="math inline">\(10\%\)</span>)</li>
+</ul>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>  time cash_flow InterestRate       PV      NPV
+1    1       100          0.1 90.90909 379.0787
+2    2       100          0.1 82.64463 379.0787
+3    3       100          0.1 75.13148 379.0787
+4    4       100          0.1 68.30135 379.0787
+5    5       100          0.1 62.09213 379.0787</code></pre>
+</div>
+</div>
+</section>
+
+<section id="dividend-growth-model" class="title-slide slide level1 center">
+<h1>Dividend Growth Model</h1>
+<ul>
+<li class="fragment"><p>Shares are valued as any other asset:</p>
+<ul>
+<li class="fragment">Calculate the <strong>present value</strong> of the future cash flows</li>
+</ul></li>
+<li class="fragment"><p>Shareholders expect to receive two types of future cash flows</p>
+<ul>
+<li class="fragment"><strong>Dividends</strong> - cash payments made by the company to its shareholders</li>
+<li class="fragment"><strong>Capital gains</strong> - the difference between the price at which the shares are bought and sold</li>
+</ul></li>
+<li class="fragment"><p>The return per share of firm <strong>i</strong> obtained between period 0 and 1 (one period) is:</p>
+<p><span class="math display">\[ R_i = dfrac{DIV_i + P_1 - P_0}{P_0}\]</span></p></li>
+</ul>
+</section>
+
+<section id="value-a-stock" class="title-slide slide level1 center">
+<h1>Value a stock</h1>
+<p>A share’s PV is given by;</p>
+<p><span class="math display">\[
+P_0 = \frac{D_1}{(1 + r)} + \frac{D_2}{(1 + r)^2} + \frac{D_3}{(1 + r)^3} + \dots + \frac{D_N}{(1 + r)^N}
+\]</span></p>
+<p><span class="math display">\[
+P_0 = \sum_{t=1}^{N} \frac{D_t}{(1 + r)^t} + \frac{P_N}{(1 + r)^N}
+\]</span></p>
+<ul>
+<li class="fragment">Where <span class="math inline">\(D\)</span> is the expected dividend for period <span class="math inline">\(t\)</span>, <span class="math inline">\(P_N\)</span> is the expected share price in period <span class="math inline">\(N\)</span>. <span class="math inline">\(r\)</span> is the expected return offered by <em>shares in an equivalent risk class</em> (return offered by alternative investment opportunities with the same risk).</li>
+<li class="fragment">Dividends per share (DPS) = Earnings per share * pay out ratio</li>
+<li class="fragment">The general formula to value stocks is:</li>
+</ul>
+<p><span class="math display">\[ P_0 = \sum_{t=1}^{t=\infty}\dfrac{D_t}{(1+r)^t}\]</span></p>
+<ul>
+<li class="fragment">Use infinity since shares do not have a “maturity date”.</li>
+</ul>
+</section>
+
+<section id="value-a-stock-1" class="title-slide slide level1 center">
+<h1>Value a stock</h1>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><strong>Question (10 minutes)</strong></strong></p>
+</div>
+<div class="callout-content">
+<p>Calculate the price of one share of GOOGL considering that expected dividends per share for the next two years are 2€ and 3€ respectively and the estimated selling price in two years is €11.5. The expected return offered by shares with a similar level of risk is 8.8%.</p>
+</div>
+</div>
+</div>
+<p><span class="math display">\[
+P_0 = \frac{D_1}{(1 + r)^1} + \frac{D_2}{(1 + r)^2} + \frac{P_2}{(1 + r)^2}
+\]</span></p>
+<p><span class="math display">\[
+P_0 = \frac{2}{(1 + 0.088)^1} + \frac{3}{(1 + 0.088)^2} + \frac{11.5}{(1 + 0.088)^2} = 14.09
+\]</span> # Gordon Growth Model</p>
+<ul>
+<li class="fragment">Used to determine the intrinsic value of a stock based on a future series of dividends that grow at a constant rate.</li>
+<li class="fragment">Used to calculate a fair value for the stock taking into consideration dividend payments.</li>
+<li class="fragment">Assume dividends grow at a constant rate.</li>
+<li class="fragment">Used for companies with stable growth rates in dividends per share.</li>
+</ul>
+[
+<span class="math display">\[\begin{array}{|c|c|}
+\hline
+\textbf{Company} &amp; \textbf{Years of Dividend Growth} \\
+\hline
+\text{IBM} &amp; 28 \\
+\text{Caterpillar} &amp; 29 \\
+\text{Chevron} &amp; 36 \\
+\text{Exxon Mobil} &amp; 41 \\
+\text{McDonald's} &amp; 47 \\
+\text{Pepsi Co} &amp; 51 \\
+\hline
+\end{array}\]</span>
+<p>]</p>
+</section>
+
+<section id="gordon-growth-model" class="title-slide slide level1 center">
+<h1>Gordon Growth Model</h1>
+<ul>
+<li class="fragment">Assumptions:
+<ul>
+<li class="fragment">Company exists forever</li>
+<li class="fragment">Dividends grow at a constant rate <span class="math display">\[g\]</span> forever</li>
+</ul></li>
+</ul>
+<p><span class="math display">\[P = \dfrac{D_1}{(r-g)}\]</span></p>
+<ul>
+<li class="fragment">p = Current stock price</li>
+<li class="fragment">g = Expected growth rate of dividend</li>
+<li class="fragment">r = Required rate of return</li>
+<li class="fragment"><span class="math inline">\(D_1\)</span> = Value of next dividend</li>
+</ul>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><strong>Question (10 minutes)</strong></strong></p>
+</div>
+<div class="callout-content">
+<p>Consider a company trading at $110 per share. The company requires 8% minimum rate of return <span class="math inline">\(r\)</span> and will pay <span class="math inline">\(3 dividends per share next year (\)</span>D_1<span class="math inline">\(), the growth is expected to be 5% annually (\)</span>g$).</p>
+</div>
+</div>
+</div>
+<p><span class="math display">\[P = dfrac{D_1}{(r-g)} = \dfrac{3}{(0.08-0.05)} = \$100\]</span></p>
+<ul>
+<li class="fragment">According to the Gordon Growth Model, the shares are $10 overvalued.</li>
+</ul>
+</section>
+
+<section id="gordon-growth-model-1" class="title-slide slide level1 center">
+<h1>Gordon Growth Model</h1>
+<ul>
+<li class="fragment">Limitations
+<ul>
+<li class="fragment">Establishes a value for a company without accounting for market conditions</li>
+<li class="fragment">Assumes dividends grow at a constant rate forever</li>
+<li class="fragment">Ignores non-dividend factors such as brand loyalty, customer retention and intangible assets (which all add to a companies value)</li>
+<li class="fragment">Assumes dividend growth is stable</li>
+<li class="fragment">Can’t be used for valuing stocks which do not pay a dividend (growth stocks usually do not pay dividends)</li>
+</ul></li>
+</ul>
+</section>
+
+<section id="gordon-growth-model-2" class="title-slide slide level1 center">
+<h1>Gordon Growth Model</h1>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><strong>Question (10 minutes)</strong></strong></p>
+</div>
+<div class="callout-content">
+<p>Suppose a company historically has been paying $3 in dividends per year for 20 years. The expected return is 8.8% and the dividends are expected to grow at 3%. Calculate the price of the stock using the Gordon Growth Model.</p>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment"><span class="math display">\[ P_0 = \dfrac{D_1}{(r-g)} = \dfrac{3}{0.088-0.03} = 86.21 \]</span></li>
+</ul>
+</section>
+
+<section id="gordon-growth-model-3" class="title-slide slide level1 center">
+<h1>Gordon Growth Model</h1>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><strong>Question (10 minutes)</strong></strong></p>
+</div>
+<div class="callout-content">
+<p>INCARSA Corporation is in the business of selling and distributing computers. The firm has announced that it will pay a 2€ dividend per share at the beginning of next year, a 3€ dividend per share the year after and a constant dividend per share equal to 1.8€ growing at 2% there after. The required rate of return for firms in this sector is 10%.</p>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">Compute the price at which one share of INCARSA Corp.&nbsp;is expected to trade in the secondary market.</li>
+<li class="fragment">$$ P_0 = + + = 22.89</li>
+<li class="fragment">The firm has 2 million shares outstanding.</li>
+<li class="fragment"><span class="math display">\[ \text{Equity Value_0} = 22.89 * 2M = 45.7851 M\]</span></li>
+<li class="fragment">Compute the value of the firm’s equity. Earnings for this year are equal to 6,000,000€.</li>
+<li class="fragment">Compute the payout ratio and EPS.</li>
+<li class="fragment">$$ = = 3_1 = </li>
+<li class="fragment">More resources: https://people.stern.nyu.edu/adamodar/pdfiles/ddm.pdf</li>
+</ul>
+<div class="quarto-auto-generated-content">
+<div class="footer footer-default">
+
+</div>
+</div>
+</section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="introduction_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="introduction_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="introduction_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="introduction_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="introduction_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="introduction_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="introduction_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="introduction_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="introduction_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="introduction_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="introduction_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'print',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
